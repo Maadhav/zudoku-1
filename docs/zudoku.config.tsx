@@ -1,5 +1,6 @@
 import { lazy } from "react";
 import type { ZudokuConfig } from "zudoku";
+import { aiChatPlugin } from "zudoku/plugins/ai-chat";
 import { Button } from "zudoku/ui/Button.js";
 import { components, docs } from "./sidebar";
 import DiscordIcon from "./src/DiscordIcon";
@@ -98,6 +99,7 @@ const config: ZudokuConfig = {
     },
   ],
   plugins: [
+    aiChatPlugin(),
     {
       getHead: () => {
         return (
