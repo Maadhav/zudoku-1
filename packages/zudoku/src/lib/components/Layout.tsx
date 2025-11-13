@@ -3,6 +3,7 @@ import { Outlet } from "react-router";
 import { cn } from "../util/cn.js";
 import { useScrollToAnchor } from "../util/useScrollToAnchor.js";
 import { useScrollToTop } from "../util/useScrollToTop.js";
+import { AIChat } from "./AIChat.js";
 import { useZudoku } from "./context/ZudokuContext.js";
 import { Footer } from "./Footer.js";
 import { Header } from "./Header.js";
@@ -45,6 +46,7 @@ export const Layout = ({ children }: { children?: ReactNode }) => {
         </Suspense>
       </div>
       <Footer />
+      <AIChat />
     </>
   );
 };

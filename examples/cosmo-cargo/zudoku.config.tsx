@@ -4,6 +4,7 @@ import type {
   ZudokuConfig,
   ZudokuContext,
 } from "zudoku";
+import { aiChatPlugin } from "zudoku/plugins/ai-chat";
 import { Landingpage } from "./src/Landingpage";
 
 export class CosmoCargoApiIdentityPlugin implements ApiIdentityPlugin {
@@ -38,6 +39,7 @@ const config: ZudokuConfig = {
     llms: { llmsTxt: true, llmsTxtFull: true },
   },
   site: {
+    showPoweredBy: false,
     logo: {
       src: { light: "/logo-light.svg", dark: "/logo-dark.svg" },
       width: 130,
@@ -113,7 +115,13 @@ const config: ZudokuConfig = {
       },
     },
   },
-  plugins: [new CosmoCargoApiIdentityPlugin()],
+  plugins: [
+    new CosmoCargoApiIdentityPlugin(),
+    aiChatPlugin({
+      welcomeMessage:
+        "Hi! 🚀 I'm your Cosmo Cargo assistant. Ask me anything about shipping, tracking, or our documentation!",
+    }),
+  ],
   protectedRoutes: ["/only-members"],
   navigation: [
     {
@@ -272,48 +280,7 @@ const config: ZudokuConfig = {
     },
   ],
   theme: {
-    light: {
-      background: "0 0% 100%",
-      foreground: "20 14.3% 4.1%",
-      card: "0 0% 100%",
-      cardForeground: "20 14.3% 4.1%",
-      popover: "0 0% 100%",
-      popoverForeground: "20 14.3% 4.1%",
-      primary: "#f4bf32",
-      primaryForeground: "#0f1719",
-      secondary: "60 4.8% 95.9%",
-      secondaryForeground: "24 9.8% 10%",
-      muted: "60 4.8% 95.9%",
-      mutedForeground: "25 5.3% 44.7%",
-      accent: "60 4.8% 95.9%",
-      accentForeground: "24 9.8% 10%",
-      destructive: "0 84.2% 60.2%",
-      destructiveForeground: "60 9.1% 97.8%",
-      border: "20 5.9% 90%",
-      input: "20 5.9% 90%",
-      ring: "20 14.3% 4.1%",
-    },
-    dark: {
-      background: "#1a1a18",
-      foreground: "60 9.1% 97.8%",
-      card: "20 14.3% 4.1%",
-      cardForeground: "60 9.1% 97.8%",
-      popover: "20 14.3% 4.1%",
-      popoverForeground: "60 9.1% 97.8%",
-      primary: "#f4bf32",
-      primaryForeground: "#0f1719",
-      secondary: "12 6.5% 15.1%",
-      secondaryForeground: "60 9.1% 97.8%",
-      muted: "14 9% 9%",
-      mutedForeground: "24 5.4% 63.9%",
-      accent: "12 6.5% 15.1%",
-      accentForeground: "60 9.1% 97.8%",
-      destructive: "0 62.8% 30.6%",
-      destructiveForeground: "60 9.1% 97.8%",
-      border: "hsl(12deg 4.75% 24.84%)",
-      input: "12 6.5% 15.1%",
-      ring: "35.5 91.7% 32.9%",
-    },
+    registryUrl: "https://tweakcn.com/r/themes/starry-night.json",
   },
 };
 

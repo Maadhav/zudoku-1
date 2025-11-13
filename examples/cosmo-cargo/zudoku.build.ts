@@ -1,6 +1,7 @@
 import os from "node:os";
 import type { ZudokuBuildConfig } from "zudoku";
 
+const cpuCount = os.cpus()?.length ?? 1;
 const buildConfig: ZudokuBuildConfig = {
   processors: [
     async ({ file, schema }) => {
@@ -10,7 +11,7 @@ const buildConfig: ZudokuBuildConfig = {
     },
   ],
   prerender: {
-    workers: Math.floor(os.cpus().length * 0.75),
+    workers: Math.max(1, Math.floor(cpuCount * 0.75)),
   },
 };
 

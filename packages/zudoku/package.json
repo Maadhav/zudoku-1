@@ -32,6 +32,7 @@
     "./auth/supabase": "./src/lib/authentication/providers/supabase.tsx",
     "./auth/azureb2c": "./src/lib/authentication/providers/azureb2c.tsx",
     "./plugins": "./src/lib/core/plugins.ts",
+    "./plugins/ai-chat": "./src/lib/plugins/ai-chat/index.tsx",
     "./plugins/api-keys": "./src/lib/plugins/api-keys/index.tsx",
     "./plugins/markdown": "./src/lib/plugins/markdown/index.tsx",
     "./plugins/openapi": "./src/lib/plugins/openapi/index.tsx",
@@ -94,6 +95,10 @@
       "./plugins": {
         "import": "./lib/zudoku.plugins.js",
         "types": "./dist/lib/core/plugins.d.ts"
+      },
+      "./plugins/ai-chat": {
+        "import": "./lib/zudoku.plugin-ai-chat.js",
+        "types": "./dist/lib/plugins/ai-chat/index.d.ts"
       },
       "./plugins/api-keys": {
         "import": "./lib/zudoku.plugin-api-keys.js",

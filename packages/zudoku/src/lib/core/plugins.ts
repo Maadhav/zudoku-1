@@ -18,7 +18,8 @@ export type ZudokuPlugin =
   | ApiIdentityPlugin
   | SearchProviderPlugin
   | EventConsumerPlugin
-  | AuthenticationPlugin;
+  | AuthenticationPlugin
+  | AIChatPlugin;
 
 export type { AuthenticationPlugin, RouteObject };
 
@@ -44,6 +45,14 @@ export interface SearchProviderPlugin {
   renderSearch: (o: {
     isOpen: boolean;
     onClose: () => void;
+  }) => React.JSX.Element | null;
+}
+
+export interface AIChatPlugin {
+  renderAIChat: (o: {
+    isOpen: boolean;
+    onClose: () => void;
+    onSendMessage?: (message: string) => Promise<string>;
   }) => React.JSX.Element | null;
 }
 
@@ -96,6 +105,9 @@ export const isSearchPlugin = (
   obj: ZudokuPlugin,
 ): obj is SearchProviderPlugin =>
   "renderSearch" in obj && typeof obj.renderSearch === "function";
+
+export const isAIChatPlugin = (obj: ZudokuPlugin): obj is AIChatPlugin =>
+  "renderAIChat" in obj && typeof obj.renderAIChat === "function";
 
 export const needsInitialization = (obj: ZudokuPlugin): obj is CommonPlugin =>
   "initialize" in obj && typeof obj.initialize === "function";

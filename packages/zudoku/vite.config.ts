@@ -16,6 +16,7 @@ const entries: Record<string, string> = {
   hooks: "./src/lib/hooks/index.ts",
   router: "./src/lib/core/router.ts",
   __internal: "./src/lib/core/__internal.tsx",
+  "plugin-ai-chat": "./src/lib/plugins/ai-chat/index.tsx",
   "plugin-api-keys": "./src/lib/plugins/api-keys/index.tsx",
   "plugin-markdown": "./src/lib/plugins/markdown/index.tsx",
   "plugin-openapi": "./src/lib/plugins/openapi/index.tsx",

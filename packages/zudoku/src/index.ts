@@ -3,6 +3,7 @@ export type { InputNavigation as Navigation } from "./config/validators/InputNav
 export type { SlotType } from "./lib/components/context/SlotProvider.js";
 export { type CustomSlotNames, Slot } from "./lib/components/Slot.js";
 export type {
+  AIChatPlugin,
   ApiIdentityPlugin,
   AuthenticationPlugin,
   CommonPlugin,
